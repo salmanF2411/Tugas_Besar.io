@@ -11,41 +11,81 @@
     <!-- Headerrr -->
     <header>
         <div class="top-bar">
-            <span>📱 <strong>Download</strong> aplikasi ruparupa</span>
-            <span>Pusat Bantuan</span>
-            <span>ruparupa.com</span>
-            <span class="highlight">ruparupa bisnis <span class="new">NEW</span></span>
-            <span>Jasa Desain Interior</span>
-            <span>Gratis Ongkir</span>
+            <div class="top-bar-container">
+                <div class="top-bar-left">
+                    <span><i class="ri-smartphone-line"></i> <strong>Download</strong> aplikasi ruparupa</span>
+                    <span><i class="ri-question-line"></i> Pusat Bantuan</span>
+                    <span class="highlight">ruparupa.com</span>
+                </div>
+                <div class="top-bar-right">
+                    <span class="highlight">ruparupa bisnis <span class="new-badge">NEW</span></span>
+                    <span><i class="ri-paint-line"></i> Jasa Desain Interior</span>
+                    <span><i class="ri-truck-line"></i> Gratis Ongkir</span>
+                </div>
+            </div>
         </div>
+        
         <nav class="main-nav">
-            <div class="logo">
-                <img src="ruparupa.png" alt=""> ruparupa
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <img src="img/ruparupa.png" alt="Ruparupa">ruparupa
+                </a>
+                
+                <div class="kategori-container">
+                    <button class="kategori-btn" id="kategoriBtn">
+                        <i class="ri-menu-line"></i> Kategori
+                    </button>
+                </div>
+                
+                <a href="#" class="inspirasi-link">Inspirasi</a>
+                
+                <div class="search-container">
+                    <input type="text" placeholder="Cari Meja makan, kasur, kursi, dll">
+                    <button class="search-btn">
+                        <i class="ri-search-line"></i>
+                    </button>
+                </div>
+                
+                <div class="nav-right">
+                    <div class="rewards">
+                        <i class="ri-vip-crown-line rewards-crown"></i>
+                        <span>rewards</span>
+                    </div>
+                    
+                    <i class="ri-notification-3-line nav-icon">
+                        <span class="badge">3</span>
+                    </i>
+                    
+                    <i class="ri-shopping-cart-2-line nav-icon">
+                        <span class="badge">5</span>
+                    </i>
+                    
+                    <div class="auth-buttons">
+                        <a href="admin/login.php"><button class="masuk-btn">Masuk</button></a>
+                        <a href="admin/login.php"><button class="daftar-btn">Daftar</button></a>
+                    </div>
+                </div>
             </div>
-            <a href="#" class="kategori">Kategori</a>
-            <a href="#" class="inspirasi">Inspirasi</a>
-            <div class="search-container">
-                <input type="text" placeholder="Cari Meja makan">
-                <button class="search-btn">🔍</button>
-            </div>
-            <div class="icons">
-                <i class="ri-shopping-cart-line"></i>
-                <i class="ri-notification-3-line"></i>
-            </div>
-            <div class="rewards">rewards👑</div>
-            <button class="masuk">Masuk</button>
-            <button class="daftar">Daftar</button>
         </nav>
-        <div class="menu">
-            <a href="#">Best Deals</a>
-            <a href="#">Furnitur</a>
-            <a href="#">Rak dan Penyimpanan</a>
-            <a href="#">Dapur Minimalis</a>
-            <a href="#">Elektronik & Gadget</a>
-            <a href="#">Rumah Tangga</a>
-            <a href="#">Home Improvement</a>
-            <a href="#">Bed & Bath</a>
-            <a href="#">Hobi & Gaya Hits</a>
+        
+        <div class="category-menu">
+            <div class="menu-container">
+                <a href="#" class="menu-link">Best Deals</a>
+                <a href="#" class="menu-link category-trigger" data-category="furniture">Furnitur</a>
+                <a href="#" class="menu-link category-trigger" data-category="storage">Rak dan Penyimpanan</a>
+                <a href="#" class="menu-link category-trigger" data-category="kitchen">Dapur Minimalis</a>
+                <a href="#" class="menu-link category-trigger" data-category="electronics">Elektronik & Gadget</a>
+                <a href="#" class="menu-link category-trigger" data-category="household">Rumah Tangga</a>
+                <a href="#" class="menu-link category-trigger" data-category="improvement">Home Improvement</a>
+                <a href="#" class="menu-link category-trigger" data-category="bath">Bed & Bath</a>
+                <a href="#" class="menu-link category-trigger" data-category="hobby">Hobi & Gaya Hits</a>
+            </div>
+            
+            <div class="mega-dropdown" id="megaDropdown">
+                <div class="dropdown-container">
+                    <!--javascript -->
+                </div>
+            </div>
         </div>
     </header>
 
@@ -180,5 +220,7 @@
                 <p>&copy; 2011 - 2025 PT. HIJUP.COM. All Rights Reserved.</p>
             </div>
         </footer>
+
+        <script src="script.js"></script>
 </body>
 </html>
