@@ -7,6 +7,15 @@
             --success-color: #28a745;
             --warning-color: #ffc107;
             --info-color: #17a2b8;
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
         
         * {
@@ -17,6 +26,7 @@
         }
         
         body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
             background-color: #f5f7fa;
             color: #333;
         }
@@ -377,41 +387,6 @@
             font-size: 0.75rem;
             color: #adb5bd;
         }
-        
-        /* Quick Actions */
-        .quick-actions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .quick-action {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        
-        .quick-action:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        
-        .quick-action i {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        .quick-action span {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
 
         /* Enhanced Navbar Styles */
         .admin-navbar {
@@ -663,34 +638,215 @@
             font-size: 0.75rem;
             color: #adb5bd;
         }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .sidebar {
-                left: -250px;
-            }
-            
-            .sidebar.show {
-                left: 0;
-            }
-            
-            .main-content {
-                margin-left: 0;
-            }
+
+        .page-title, .modern-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color:#4361ee;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 1rem 0 2rem 0;
         }
-        
-        @media (max-width: 768px) {
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .quick-actions {
-                grid-template-columns: repeat(2, 1fr);
-            }
+
+        /* style menu dashboard */
+        .modern-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
-        @media (max-width: 576px) {
-            .quick-actions {
-                grid-template-columns: 1fr;
-            }
+
+        .modern-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .modern-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 0;
+        }
+
+        .modern-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary);
+            color: white;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .modern-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .modern-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .modern-table thead {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .modern-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .modern-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .modern-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .modern-table tbody tr:hover {
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+
+        .modern-actions {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .modern-action {
+            color: var(--gray);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .modern-action:hover {
+            transform: scale(1.15);
+        }
+
+        .modern-action.view:hover {
+            color: #4cc9f0;
+        }
+
+        .modern-action.edit:hover {
+            color: #f8961e;
+        }
+
+        .modern-action.delete:hover {
+            color: var(--secondary);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-published {
+            background-color: rgba(76, 201, 240, 0.1);
+            color: #4cc9f0;
+        }
+
+        .status-draft {
+            background-color: rgba(248, 150, 30, 0.1);
+            color: #f8961e;
+        }
+
+        /* Added back button style - matches existing design */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-right: 10px;
+        }
+
+        .back-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .quick-action {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .quick-action:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-action a {
+            text-decoration: none;
+            color: var(--dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .quick-action i {
+            font-size: 1.75rem;
+            color: var(--primary);
+            background: rgba(67, 97, 238, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .quick-action:hover i {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .quick-action span {
+            font-weight: 500;
+            font-size: 0.9rem;
         }

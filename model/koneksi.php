@@ -3,7 +3,7 @@ class Koneksi{
     private $host = 'localhost';
     private $user = 'root';
     private $password = '';
-    private $dbname = 'myblog';
+    private $dbname = 'Tubes_PWD';
     private $conn;
 
     public function __construct(){
