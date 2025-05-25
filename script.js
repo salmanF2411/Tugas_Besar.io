@@ -78,3 +78,29 @@
 //                 categoryTriggers.forEach(t => t.classList.remove('active'));
 //             });
 //         });
+
+// next prev
+ const backgrounds = [
+        'img/chef.jpg',
+        'img/food2.jpg',
+        'img/food3.jpg'
+    ];
+
+    let current = 0;
+    const leftSection = document.querySelector('.left-section');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+
+    function updateBackground() {
+        leftSection.style.backgroundImage = `url('${backgrounds[current]}')`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+        current = (current + 1) % backgrounds.length;
+        updateBackground();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        current = (current - 1 + backgrounds.length) % backgrounds.length;
+        updateBackground();
+    });

@@ -59,6 +59,4 @@
             </table>
         </div>
     </div>
-    <br>
-    <a href="<?= 'dashboard.php?module=produk&page=daftar-produk' ?>" class="back-btn"><i class="fa fa-arrow-left"></i> Kembali</a>
 </div>

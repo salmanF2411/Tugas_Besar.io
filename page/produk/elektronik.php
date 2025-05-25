@@ -6,13 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Katalog Produk</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 20px;
-    }
-
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -27,6 +20,10 @@
       overflow: hidden;
       width: 250px;
       transition: transform 0.3s ease;
+    }
+    .card-link {
+      text-decoration: none;
+      color: inherit;
     }
 
     .card:hover {
@@ -76,22 +73,25 @@
 
   <div class="container">
     <?php foreach ($elektroniks as $row): ?>
-      <div class="card">
-        <img src="img/<?= "$row[cover] " ?>" alt="<?= htmlspecialchars($row['nama_elektronik']) ?>">
-        <div class="card-content">
-          <div class="product-name"><?= htmlspecialchars($row['nama_elektronik']) ?></div>
-          <div class="price">Rp <?= number_format($row['harga'], 0, ',', '.') ?></div>
-          <div class="rating">
-            <?php
-            // Generate star rating
-            $fullStars = floor($row['rating']);
-            $halfStar = ($row['rating'] - $fullStars) >= 0.5 ? 1 : 0;
-            echo str_repeat('★', $fullStars) . ($halfStar ? '½' : '') . str_repeat('☆', 5 - $fullStars - $halfStar);
-            ?>
+      <a href="index.php?module=detail&page=detail-elektronik&id=<?= $row['id_elektronik'] ?>" class="card-link">
+        <div class="card">
+          <img src="img/<?= "$row[cover] " ?>" alt="<?= htmlspecialchars($row['nama_elektronik']) ?>">
+          <div class="card-content">
+            <div class="product-name"><?= htmlspecialchars($row['nama_elektronik']) ?></div>
+            <div class="price">Rp <?= number_format($row['harga'], 0, ',', '.') ?></div>
+            <div class="rating">
+              <?php
+              $fullStars = floor($row['rating']);
+              $halfStar = ($row['rating'] - $fullStars) >= 0.5 ? 1 : 0;
+              echo str_repeat('★', $fullStars) . ($halfStar ? '½' : '') . str_repeat('☆', 5 - $fullStars - $halfStar);
+              ?>
+            </div>
+            <div class="description">
+              <?= htmlspecialchars(mb_strimwidth($row['deskripsi'], 0, 25, '...')) ?>
+            </div>
           </div>
-          <div class="description"><?= htmlspecialchars($row['deskripsi']) ?></div>
         </div>
-      </div>
+      </a>
     <?php endforeach; ?>
   </div>
 </body>

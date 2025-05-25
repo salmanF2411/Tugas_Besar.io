@@ -4,43 +4,43 @@
         <!-- Quick Actions -->
         <div class="quick-actions">
             <div class="quick-action">
-                <a href="<?='dashboard.php?module=produk&page=furniture'?>">
+                <a href="<?='dashboard.php?module=produk-furniture&page=furniture'?>">
                     <i class="ri-sofa-line"></i>
                     <span>Furniture</span>
                 </a>
             </div>
             <div class="quick-action">
-                <a href="<?='dashboard.php?module=produk&page=rak-penyimpanan'?>">
+                <a href="<?='dashboard.php?module=produk-rak&page=rak-penyimpanan'?>">
                     <i class="ri-archive-line"></i>
                     <span>Rak dan Penyimpanan</span>
                 </a>
             </div>
             <div class="quick-action">
-                <a href="<?='dashboard.php?module=produk&page=sepatu'?>">
+                <a href="<?='dashboard.php?module=produk-sepatu&page=sepatu'?>">
                     <i class="ri-footprint-line"></i>
                     <span>Sepatu</span>
                 </a>
             </div>
             <div class="quick-action">
-                <a href="<?='dashboard.php?module=produk&page=elektronik'?>">
+                <a href="<?='dashboard.php?module=produk-elektronik&page=elektronik'?>">
                     <i class="ri-smartphone-line"></i>
                     <span>Elektronik dan Gadget</span>
                 </a>
             </div>
             <div class="quick-action">
-                <a href="<?='dashboard.php?module=produk&page=baju'?>">
+                <a href="<?='dashboard.php?module=produk-baju&page=baju'?>">
                     <i class="ri-t-shirt-line"></i>
                     <span>Baju</span>
                 </a>
             </div>
             <div class="quick-action">
-                <a href="<?='dashboard.php?module=produk&page=buku'?>">
+                <a href="<?='dashboard.php?module=produk-buku&page=buku'?>">
                     <i class="ri-book-line"></i>
                     <span>Buku</span>
                 </a>
             </div>
             <div class="quick-action">
-                <a href="<?='dashboard.php?module=produk&page=kendaraan'?>">
+                <a href="<?='dashboard.php?module=produk-kendaraan&page=kendaraan'?>">
                     <i class="ri-car-line"></i>
                     <span>Kendaraan</span>
                 </a>

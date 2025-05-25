@@ -20,7 +20,48 @@
             }
             return $data;
         }
+        public function simpan($nama, $harga, $rating,  $deskripsi, $cover){
+        $sql = ("INSERT INTO furniture(nama_furniture, harga, rating, deskripsi, cover) 
+                   VALUES(?,?,?,?,?)");
+        $query = $this->conn->prepare($sql);
+
+        $query->bind_param("sdiss", $nama, $harga, $rating, $deskripsi, $cover);
+        $result = $query->execute();
+
+        return $result;
     }
 
-// $artikel = new Artikel();
-// print_r($artikel->getAll());
+    public function edit($id, $nama, $harga, $rating,  $deskripsi, $cover) {
+        $sql = "UPDATE furniture 
+                SET nama_furniture = ?, harga = ?, rating = ?, deskripsi = ?, cover = ?
+                WHERE id_furniture = ?";
+        $query = $this->conn->prepare($sql);
+
+        $query->bind_param("sdissi", $nama,$harga,  $rating, $deskripsi, $cover, $id);
+        $result = $query->execute();
+
+        return $result;
+    }
+
+    public function delete($id) {
+        $sql = "DELETE FROM furniture WHERE id_furniture = ?";
+        $query = $this->conn->prepare($sql);
+
+        $query->bind_param("i", $id);
+        $result = $query->execute();
+
+        return $result;
+    }
+
+
+    public function get_by_id($id){
+
+        $sql = ("SELECT * FROM furniture WHERE id_furniture = ?");
+        $query = $this->conn->prepare($sql);
+        $query->bind_param("i", $id);
+        $query->execute();
+        $result =  $query->get_result();
+
+        return $result;
+    }
+    }

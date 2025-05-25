@@ -72,6 +72,10 @@
         .sidebar-menu {
             padding: 20px 0;
         }
+
+        .sidebar-menu .kembali {
+            margin-top: 150px;
+        }
         
         .sidebar-menu a {
             display: flex;

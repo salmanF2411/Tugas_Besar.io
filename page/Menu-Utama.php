@@ -1,50 +1,54 @@
 <div class="main-section">
-            <div class="left-section">
-                <h2>Revolusi Food Industri dengan Food Technology!</h2>
-                <ul>
-                    <li>Bantuan permodalan</li>
-                    <li>Produksi skala besar dan kualitas terjamin</li>
-                    <li>Distribusi luas di berbagai saluran penjualan</li>
-                </ul>
-                <button >Gabung Sekarang</button>
-            </div>
-            <div class="right-section">
-                <div class="card"><p>100% Efektif & Efisien Perluas Bisnis Kamu</p> 
-                    <button >Gabung Sekarang</button>
-                </div>
-                <div class="card"><p>Permudah Bayar Bulanan Perusahaan Anda</p> 
-                    <button >Gabung Sekarang</button>
-                </div>
-                
-            </div>
+    <div class="left-section">
+        <a href=""></a>
+        <!-- <h2>Revolusi Food Industri dengan Food Technology!</h2>
+        <ul>
+            <li>Bantuan permodalan</li>
+            <li>Produksi skala besar dan kualitas terjamin</li>
+            <li>Distribusi luas di berbagai saluran penjualan</li>
+        </ul>
+        <button>Gabung Sekarang</button> -->
+    </div>
+    <div class="right-section">
+        <div class="card">
+            <a href=""></a>
+            <!-- <p>100% Efektif & Efisien Perluas Bisnis Kamu</p>
+            <p>100% Efektif & Efisien Perluas Bisnis Kamu</p>
+            <button>Gabung Sekarang</button> -->
         </div>
-        <p class="p1">partners</p>
-        <div class="partners">
-            <img src="img/aqua.jpg" alt="Partner 1">
-            <img src="img/aqua.jpg" alt="Partner 2">
-            <img src="img/mayor.jpg" alt="Partner 3">
-            <img src="img/mayor.jpg" alt="Partner 4">
-            <img src="img/aqua.jpg" alt="Partner 1">
-            <img src="img/aqua.jpg" alt="Partner 2">
-            <img src="img/mayor.jpg" alt="Partner 3">
+        <div class="card">
+            <a href=""></a>
+            <!-- <p>Permudah Bayar Bulanan Perusahaan Anda</p>
+            <p>Permudah Bayar Bulanan Perusahaan Anda</p>
+            <button>Gabung Sekarang</button> -->
         </div>
+    </div>
+</div>
+<?php
+require_once('model/Partner.php');
+$partner = new Partner();
+$partners = $partner->getAll();
+?>
+<p class="p1">Partners</p>
+<div class="partners">
+    <?php foreach ($partners as $row): ?>
+        <img src="img/<?= "$row[cover] " ?>" alt="Partner 1">
+    <?php endforeach; ?>
+</div>
 
-        <p class="p2">Artikel Seputar Bisnis</p>
-        <div class="articles">
-            <div class="article-card">
-                <img src="img/chef.jpg" alt="Teknologi Ritel">
-                <p>Mengupas Teknologi Ritel...</p>
-            </div>
-            <div class="article-card">
-                <img src="img/chef.jpg" alt="Penipuan Bisnis">
-                <p>Waspada Penipuan Bisnis...</p>
-            </div>
-            <div class="article-card">
-                <img src="img/chef.jpg" alt="Tren Bisnis">
-                <p>Mengungkap Tren Bisnis...</p>
-            </div>
-            <div class="article-card">
-                <img src="img/chef.jpg" alt="Inovasi Robotik">
-                <p>Inovasi Robotik dalam Industri...</p>
-            </div>
+
+<?php
+require_once('model/Artikel.php');
+$artikel = new Artikel();
+$artikels = $artikel->getAll();
+?>
+<p class="p2">Artikel Seputar Bisnis</p>
+<div class="articles">
+    <?php foreach ($artikels as $row): ?>
+        <div class="article-card">
+            <a href="#"><img src="img/<?= "$row[cover] " ?>" alt="Teknologi Ritel">
+                <p><?= substr(strip_tags($row['deskripsi']), 0, 25); ?>...</p>
+            </a>
         </div>
+    <?php endforeach; ?>
+</div>

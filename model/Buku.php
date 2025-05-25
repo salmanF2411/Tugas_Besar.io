@@ -20,4 +20,47 @@
             }
             return $data;
         }
+        public function simpan($nama, $harga, $rating,  $deskripsi, $cover){
+        $sql = ("INSERT INTO buku(nama_buku, harga, rating, deskripsi, cover) 
+                   VALUES(?,?,?,?,?)");
+        $query = $this->conn->prepare($sql);
+
+        $query->bind_param("sdiss", $nama, $harga, $rating, $deskripsi, $cover);
+        $result = $query->execute();
+
+        return $result;
+    }
+
+    public function edit($id, $nama, $harga, $rating,  $deskripsi, $cover) {
+        $sql = "UPDATE buku 
+                SET nama_buku = ?, harga = ?, rating = ?, deskripsi = ?, cover = ?
+                WHERE id_buku = ?";
+        $query = $this->conn->prepare($sql);
+
+        $query->bind_param("sdissi", $nama,$harga,  $rating, $deskripsi, $cover, $id);
+        $result = $query->execute();
+
+        return $result;
+    }
+
+    public function delete($id) {
+        $sql = "DELETE FROM buku WHERE id_buku = ?";
+        $query = $this->conn->prepare($sql);
+
+        $query->bind_param("i", $id);
+        $result = $query->execute();
+
+        return $result;
+    }
+
+
+    public function get_by_id($id){
+
+        $sql = ("SELECT * FROM buku WHERE id_buku = ?");
+        $query = $this->conn->prepare($sql);
+        $query->bind_param("i", $id);
+        $query->execute();
+        $result =  $query->get_result();
+        return $result->fetch_assoc(); 
+    }
     }

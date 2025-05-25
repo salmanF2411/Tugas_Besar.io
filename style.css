@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
@@ -31,6 +31,22 @@ body {
 .top-bar-left, .top-bar-right {
     display: flex;
     gap: 20px;
+}
+
+.top-bar-right .admin {
+    font-size: 12px;
+    text-decoration: none;
+    background: #610200;
+    border: none;
+    color: white;
+    padding: 1px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.top-bar-right .admin:hover {
+    background-color: #9a4920;
 }
 
 .top-bar span {
@@ -92,7 +108,7 @@ body {
 }
 
 /* Kategori Button and Dropdown Container */
-.kategori-container {
+/* .kategori-container {
     position: relative;
     display: inline-block;
 }
@@ -111,6 +127,10 @@ body {
 
 .kategori-btn:hover {
     background: #eeeeee;
+} */
+
+.kategori-link {
+    color: #e53935;
 }
 
 .inspirasi-link {
@@ -335,53 +355,9 @@ body {
     padding-left: 5px;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .top-bar-left, .top-bar-right {
-        gap: 10px;
-    }
-    
-    .menu-container {
-        gap: 20px;
-    }
-    
-    .nav-right {
-        gap: 15px;
-    }
-    
-    .dropdown-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .top-bar {
-        display: none;
-    }
-    
-    .nav-container {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    
-    .search-container {
-        order: 1;
-        min-width: 100%;
-        margin: 10px 0 0 0;
-    }
-    
-    .category-menu {
-        display: none;
-    }
-    
-    .mega-dropdown {
-        position: static;
-        display: none !important;
-    }
-}
 /* mainnn */
 .container {
-    width: 90%;
+    width: 93%;
     max-width: 1200px;
     margin: 20px auto;
 }
@@ -392,8 +368,7 @@ body {
 }
 
 .left-section, .right-section .card {
-    border-radius: 10px;
-    padding: 40px;
+    padding: 95px;
     color: white;
     position: relative;
     display: flex;
@@ -405,7 +380,7 @@ body {
 
 .left-section {
     flex: 2;
-    background-image: url('img/chef.jpg');
+    background-image: url('img/ralali1.jpg');
 }
 
 .right-section {
@@ -417,90 +392,47 @@ body {
 
 .right-section .card {
     background: rgba(0, 0, 0, 0.6);
-    padding: 40px;
-    font-weight: bold;
-    background-size: cover;
-    background-position: center;
+    padding: 95px;
 
 }
 
 .right-section .card:first-child {
-    background-image: url('img/diskon.jpg');
+    background-image: url('img/ralali2.jpg');
 }
 
 .right-section .card:last-child {
-    background-image: url('img/pay.jpg');
-}
-
-.left-section h2 {
-    font-size: 26px;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-.left-section ul {
-    list-style: none;
-    margin-bottom: 20px;
-}
-
-.left-section ul li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.left-section ul li::before {
-    content: '\2022';
-    color: #ff5733;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-}
-
-.left-section button {
-    background: #ff4081;
-    border: none;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 20px;
-    cursor: pointer;
-    width: 30%;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.right-section button {
-    margin-top: 30px;
-    background: #ff4081;
-    border: none;
-    color: white;
-    padding: 10px 10px;
-    border-radius: 20px;
-    cursor: pointer;
-    width: 50%;
-    font-size: 10px;
-    font-weight: bold;
+    background-image: url('img/ralali3.jpg');
 }
 
 .container .p1 {
-    font-size: 16px;
+    font-size: 25px;
+    font-weight: bold;
+    
 }
 
 .partners {
     display: flex;
-    gap: 80px;
-    margin: 10px 0;
+    gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-
 }
 
 .container .p2 {
     padding-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
 }
 .partners img {
-    height: 70px;
-    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8%;
+    transition: transform 0.3s ease;
+}
+
+.partners img:hover {
+    transform: scale(1.03);
 }
 
 
@@ -508,7 +440,6 @@ body {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    padding: 20px;
 }
 .article-card {
     width: 250px;
@@ -526,6 +457,14 @@ body {
     padding: 10px;
     font-size: 16px;
     font-weight: bold;
+}
+.article-card a {
+    text-decoration: none;
+    color: black;
+}
+
+.article-card a p {
+    font-size: 20px;
 }
 
 /* footer */
@@ -598,4 +537,18 @@ p {
     text-align: center;
     padding: 10px;
     font-size: 12px;
+}
+
+.keluar-btn {
+    background: #f00b07;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.keluar-btn:hover {
+    background: #761313;
 }

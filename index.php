@@ -1,3 +1,7 @@
+<?php
+require_once 'auth/session.php';
+$session = new Session();
+?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -20,6 +24,9 @@
                     <span class="highlight">ruparupa.com</span>
                 </div>
                 <div class="top-bar-right">
+                    <?php if (isset($_SESSION['email']) && isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                        <a class="admin" href="admin/dashboard.php">Admin Panel</a>
+                    <?php endif; ?>
                     <span class="highlight">ruparupa bisnis <span class="new-badge">NEW</span></span>
                     <span><i class="ri-paint-line"></i> Jasa Desain Interior</span>
                     <span><i class="ri-truck-line"></i> Gratis Ongkir</span>
@@ -33,13 +40,14 @@
                     <img src="img/ruparupa.png" alt="Ruparupa">ruparupa
                 </a>
 
-                <div class="kategori-container">
+                <!-- <div class="kategori-container">
                     <button class="kategori-btn" id="kategoriBtn">
-                        <i class="ri-menu-line"></i> Kategori
+                        <i ></i> Kategori
                     </button>
-                </div>
+                </div> -->
 
-                <a href="#" class="inspirasi-link">Inspirasi</a>
+                <a href="#" class="kategori-link">Kategori</a>
+                <a href="<?= 'index.php?module=layanan&page=layanan' ?>" class="inspirasi-link">Layanan</a>
 
                 <div class="search-container">
                     <input type="text" placeholder="Cari Meja makan, kasur, kursi, dll">
@@ -58,13 +66,19 @@
                         <span class="badge">3</span>
                     </i>
 
-                    <i class="ri-shopping-cart-2-line nav-icon">
-                        <span class="badge">5</span>
-                    </i>
+                    <a style="text-decoration: none;" href="<?= 'index.php?module=keranjang&page=keranjang' ?>" alt="keranjang"><i class="ri-shopping-cart-2-line nav-icon">
+                            <span class="badge">5</span>
+                        </i></a>
 
                     <div class="auth-buttons">
-                        <a href="admin/login.php"><button class="masuk-btn">Masuk</button></a>
-                        <a href="admin/login.php"><button class="daftar-btn">Daftar</button></a>
+                        <?php if (!isset($_SESSION['email'])) { ?>
+                            <a href="auth/loginForm.php"><button class="masuk-btn">Masuk</button></a>
+                            <a href="auth/registerForm.php"><button class="daftar-btn">Daftar</button></a>
+                        <?php } else { ?>
+                            <form action="" method="post">
+                                <input type="submit" name="logout" value="Logout" class="keluar-btn" />
+                            </form>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -74,11 +88,11 @@
             <div class="menu-container">
                 <a href="<?= 'index.php?module=produk&page=furniture' ?>" class="menu-link category-trigger" data-category="furnitur">Furnitur</a>
                 <a href="<?= 'index.php?module=produk&page=rak-penyimpanan' ?>" class="menu-link category-trigger" data-category="storage">Rak dan Penyimpanan</a>
-                <a href="<?= 'index.php?module=produk&page=dapur' ?>" class="menu-link category-trigger" data-category="kitchen">Sepatu</a>
+                <a href="<?= 'index.php?module=produk&page=sepatu' ?>" class="menu-link category-trigger" data-category="kitchen">Sepatu</a>
                 <a href="<?= 'index.php?module=produk&page=elektronik' ?>" class="menu-link category-trigger" data-category="electronics">Elektronik & Gadget</a>
-                <a href="<?= 'index.php?module=produk&page=rumah-tangga' ?>" class="menu-link category-trigger" data-category="household">Baju</a>
-                <a href="<?= 'index.php?module=produk&page=bed-bath' ?>" class="menu-link category-trigger" data-category="bath">Buku</a>
-                <a href="<?= 'index.php?module=produk&page=hobi' ?>" class="menu-link category-trigger" data-category="hobby">Kendaraan</a>
+                <a href="<?= 'index.php?module=produk&page=baju' ?>" class="menu-link category-trigger" data-category="household">Baju</a>
+                <a href="<?= 'index.php?module=produk&page=buku' ?>" class="menu-link category-trigger" data-category="bath">Buku</a>
+                <a href="<?= 'index.php?module=produk&page=kendaraan' ?>" class="menu-link category-trigger" data-category="hobby">Kendaraan</a>
             </div>
 
             <div class="mega-dropdown" id="megaDropdown">
@@ -248,15 +262,22 @@
                 <p>📷 📘 🐦 🎥 🔗</p>
                 <h3>DAPATKAN APLIKASI KAMI</h3>
                 <p>Download Aplikasi HIJUP Sekarang Juga!</p>
-                <img class="go" src="img/goplay.jpg" alt="Google Play">
-                <img class="app" src="img/appstore.jpg" alt="App Store">
+                <img class="go" src="img/playStore.jpg" alt="Google Play">
+                <img class="app" src="img/AppStore.jpg" alt="App Store">
             </div>
         </div>
+
+        <?php
+        require_once('model/Mpembayaran.php');
+        $pembayaran = new Mpembayaran();
+        $pembayarans = $pembayaran->getAll();
+        ?>
         <div class="payment-shipping">
             <h3>METODE PEMBAYARAN</h3>
             <div class="logos">
-                <img src="img/mandiri.jpg" alt="Mandiri">
-                <img src="img/bca.jpg" alt="BCA">
+                <?php foreach ($pembayarans as $row): ?>
+                    <img src="img/<?= "$row[cover] " ?>" alt="Mandiri">
+                    <!-- <img src="img/bca.jpg" alt="BCA">
                 <img src="img/visa.jpg" alt="Visa">
                 <img src="img/masrter.jpg" alt="MasterCard">
                 <img src="img/paypal.jpg" alt="PayPal">
@@ -264,16 +285,26 @@
                 <img src="img/america.jpg" alt="American Express">
                 <img src="img/dana.jpg" alt="JCB">
                 <img src="img/brimo.jpg" alt="BRImo">
-                <img src="img/gopay.jpg" alt="GoPay">
+                <img src="img/gopay.jpg" alt="GoPay"> -->
+                <?php endforeach; ?>
             </div>
+            <br><br>
 
+
+            <?php
+            require_once('model/Mpengiriman.php');
+            $pengiriman = new Mpengiriman();
+            $pengirimans = $pengiriman->getAll();
+            ?>
             <h3>LAYANAN PENGIRIMAN</h3>
             <div class="logos">
-                <img src="img/jnt.jpg" alt="JNE">
-                <img src="img/anter.jpg" alt="Anteraja">
+                <?php foreach ($pengirimans as $row): ?>
+                    <img src="img/<?= "$row[cover] " ?>" alt="JNE">
+                    <!-- <img src="img/anter.jpg" alt="Anteraja">
                 <img src="img/sicepat.jpg" alt="SiCepat">
                 <img src="img/janio.jpg" alt="Janio">
-                <img src="img/dhl.jpg" alt="DHL">
+                <img src="img/dhl.jpg" alt="DHL"> -->
+                <?php endforeach; ?>
             </div>
         </div>
         <div class="copyright">
