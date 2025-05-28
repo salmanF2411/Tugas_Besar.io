@@ -46,8 +46,9 @@ $artikels = $artikel->getAll();
 <div class="articles">
     <?php foreach ($artikels as $row): ?>
         <div class="article-card">
-            <a href="#"><img src="img/<?= "$row[cover] " ?>" alt="Teknologi Ritel">
-                <p><?= substr(strip_tags($row['deskripsi']), 0, 25); ?>...</p>
+            <a href="index.php?module=detail&page=detail-artikel&id=<?= $row['id']; ?>">
+                <img src="img/<?= htmlspecialchars($row['cover']) ?>" alt="<?= htmlspecialchars($row['judul']) ?>" style="width:100%; height:200px; object-fit:cover;">
+                <p><?= htmlspecialchars(substr(strip_tags($row['deskripsi']), 0, 80)); ?>...</p>
             </a>
         </div>
     <?php endforeach; ?>

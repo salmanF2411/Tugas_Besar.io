@@ -67,9 +67,7 @@ if (isset($_GET['id_rak'])) {
     $id = $_GET['id_rak'];
 
     // Ambil data artikel berdasarkan ID
-    $result = $rak->get_by_id($id);
-    $data = $result->fetch_assoc();
-
+    $data = $rak->get_by_id($id);
     if ($data && !empty($data['cover'])) {
         $filePath = '../img/' . $data['cover'];
         if (file_exists($filePath)) {

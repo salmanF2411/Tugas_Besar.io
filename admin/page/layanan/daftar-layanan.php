@@ -58,8 +58,7 @@
         $id = $_GET['id_layanan'];
 
         // Ambil data artikel berdasarkan ID
-        $result = $layanan->get_by_id($id);
-        $data = $result->fetch_assoc();
+        $data = $layanan->get_by_id($id);
 
         if ($data && !empty($data['cover'])) {
             $filePath = '../img/' . $data['cover'];

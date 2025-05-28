@@ -265,14 +265,14 @@ body {
     justify-content: center;
     border-bottom: 1px solid #e5e5e5;
     position: relative;
-    padding-left: 100px;
+    padding-left: 160px;
 }
 
 .menu-container {
     width: 100%;
     max-width: 1200px;
     display: flex;
-    gap: 80px;
+    gap: 50px;
     padding: 0 20px;
     overflow-x: auto;
     scrollbar-width: none;
@@ -446,12 +446,18 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background-color: #fff;
+    background-color: #fff;          
 }
+
 .article-card img {
     width: 100%;
     height: 150px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.article-card img:hover {
+    transform: scale(1.03);
 }
 .article-card p {
     padding: 10px;

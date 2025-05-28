@@ -2,9 +2,9 @@
 require_once('../model/Furniture.php');
 $furniture = new Furniture();
 $id = $_GET['id_furniture'];
-$query = $furniture->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $furniture->get_by_id($id);
+if ($data) {
+    
 ?>
 <!DOCTYPE html>
 <html lang="id">

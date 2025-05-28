@@ -68,8 +68,7 @@ if (isset($_GET['id_elektronik'])) {
     $id = $_GET['id_elektronik'];
 
     // Ambil data artikel berdasarkan ID
-    $result = $elektronik->get_by_id($id);
-    $data = $result->fetch_assoc();
+    $data = $elektronik->get_by_id($id);
 
     if ($data && !empty($data['cover'])) {
         $filePath = '../img/' . $data['cover'];

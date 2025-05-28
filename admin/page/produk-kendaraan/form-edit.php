@@ -2,9 +2,8 @@
 require_once('../model/Kendaraan.php');
 $kendaraan = new Kendaraan();
 $id = $_GET['id_kendaraan'];
-$query = $kendaraan->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $kendaraan->get_by_id($id);
+if ($data) {
 ?>
 <!DOCTYPE html>
 <html lang="id">

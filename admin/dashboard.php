@@ -52,6 +52,9 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
             <a href="<?= 'dashboard.php?module=metode-pengiriman&page=daftar-mpengiriman' ?>">
                 <i class="ri-car-washing-line"></i> Metode Pengiriman
             </a>
+            <a href="<?= 'dashboard.php?module=pengguna&page=daftar-pengguna' ?>">
+                <i class="ri-map-pin-user-line"></i> Pengguna
+            </a>
             <a href="<?= 'dashboard.php?module=laporan&page=laporan' ?>">
                 <i class="ri-file-chart-line"></i> Laporan
             </a>

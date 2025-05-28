@@ -1,10 +1,10 @@
    <div class="modern-container">
        <div class="modern-header">
            <div>
-               <h2 class="modern-title"><i class="ri-footprint-line"></i>Sepatu</h2>
+               <h2 class="modern-title"><i  class="ri-football-fill"></i>Sport</h2>
            </div>
            <div class="mb-2">
-               <a href="<?= 'dashboard.php?module=produk-sepatu&page=form-simpan';?>" class="modern-btn"><i class="fa fa-plus"></i>Tambah Sepatu</a>
+               <a href="<?= 'dashboard.php?module=produk-sport&page=form-simpan';?>" class="modern-btn"><i class="fa fa-plus"></i>Tambah Produk Sport</a>
            </div>
        </div>
 
@@ -24,16 +24,16 @@
                    </thead>
                    <tbody>
                        <?php
-                        require_once('../model/Sepatu.php');
-                        $sepatu = new Sepatu();
-                        $sepatus = $sepatu->getAll();
+                        require_once('../model/Sport.php');
+                        $sport = new Sport();
+                        $sports = $sport->getAll();
                         $nomor = 1;
 
-                        foreach ($sepatus as $row) {
+                        foreach ($sports as $row) {
                         ?>
                            <tr>
                                <td><?= $nomor++; ?></td>
-                               <td><?= $row['nama_sepatu']; ?></td>
+                               <td><?= $row['nama_sport']; ?></td>
                                <td><?= $row['harga']; ?></td>
                                <td><?= $row['rating']; ?></td>
                                <td><?= $row['deskripsi']; ?></td>
@@ -47,8 +47,8 @@
                                <td class="text-center">
                                    <div class="modern-actions">
                                        <a href="#" class="modern-action view" data-toggle="tooltip" data-placement="top" title="detail"><i class="fa fa-eye"></i></a>
-                                       <a href="<?= 'dashboard.php?module=produk-sepatu&page=form-edit&id_sepatu=' . $row['id_sepatu']; ?>" class="modern-action edit" data-toggle="tooltip" data-placement="top" title="edit"><i class="fa fa-edit"></i></a>
-                                       <a href="<?= 'dashboard.php?module=produk-sepatu&page=sepatu&id_sepatu=' . $row['id_sepatu']; ?>" onclick="return confirm('yakin ?');" class="modern-action delete" data-toggle="tooltip" data-placement="top" title="hapus"><i class="fa fa-trash"></i></a>
+                                       <a href="<?= 'dashboard.php?module=produk-sport&page=form-edit&id_sport=' . $row['id_sport']; ?>" class="modern-action edit" data-toggle="tooltip" data-placement="top" title="edit"><i class="fa fa-edit"></i></a>
+                                       <a href="<?= 'dashboard.php?module=produk-sport&page=sport&id_sport=' . $row['id_sport']; ?>" onclick="return confirm('yakin ?');" class="modern-action delete" data-toggle="tooltip" data-placement="top" title="hapus"><i class="fa fa-trash"></i></a>
                                    </div>
                                </td>
                            </tr>

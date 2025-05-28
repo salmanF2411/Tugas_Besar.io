@@ -75,26 +75,27 @@
 if (isset($_GET['id_baju'])) {
     $id = $_GET['id_baju'];
 
-    // Ambil data artikel berdasarkan ID
-    $result = $baju->get_by_id($id);
-    $data = $result->fetch_assoc();
+    // Ambil data baju (langsung dapat array, tidak perlu fetch lagi)
+    $data = $baju->get_by_id($id);
 
+    // Hapus file cover jika ada
     if ($data && !empty($data['cover'])) {
         $filePath = '../img/' . $data['cover'];
         if (file_exists($filePath)) {
-            unlink($filePath); // hapus file dari folder
+            unlink($filePath);
         }
     }
 
-    // Hapus data dari database
+    // Hapus dari database
     $deleteResult = $baju->delete($id);
 
     if ($deleteResult) {
         echo "<script>alert('Data berhasil dihapus');</script>";
     } else {
-        echo "<script>alert('Data tidak berhasil dihapus');</script>";
+        echo "<script>alert('Gagal menghapus data');</script>";
     }
 
+    // Redirect
     echo '<meta http-equiv="refresh" content="0; url=dashboard.php?module=produk-baju&page=baju">';
 }
 ?>

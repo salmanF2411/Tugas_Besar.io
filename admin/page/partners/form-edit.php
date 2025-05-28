@@ -2,9 +2,8 @@
 require_once('../model/Partner.php');
 $partner = new Partner();
 $id = $_GET['id_partner'];
-$query = $partner->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $partner->get_by_id($id);
+if ($data) {
 ?>
 <!DOCTYPE html>
 <html lang="id">

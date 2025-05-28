@@ -2,9 +2,8 @@
 require_once('../model/Rak.php');
 $rak = new Rak();
 $id = $_GET['id_rak'];
-$query = $rak->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $rak->get_by_id($id);
+if ($data) {
 ?>
 <!DOCTYPE html>
 <html lang="id">

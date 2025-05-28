@@ -67,8 +67,7 @@ if (isset($_GET['id_buku'])) {
     $id = $_GET['id_buku'];
 
     // Ambil data artikel berdasarkan ID
-    $result = $buku->get_by_id($id);
-    $data = $result->fetch_assoc();
+    $data = $buku->get_by_id($id);
 
     if ($data && !empty($data['cover'])) {
         $filePath = '../img/' . $data['cover'];

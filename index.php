@@ -93,6 +93,7 @@ $session = new Session();
                 <a href="<?= 'index.php?module=produk&page=baju' ?>" class="menu-link category-trigger" data-category="household">Baju</a>
                 <a href="<?= 'index.php?module=produk&page=buku' ?>" class="menu-link category-trigger" data-category="bath">Buku</a>
                 <a href="<?= 'index.php?module=produk&page=kendaraan' ?>" class="menu-link category-trigger" data-category="hobby">Kendaraan</a>
+                <a href="<?= 'index.php?module=produk&page=sport' ?>" class="menu-link category-trigger" data-category="hobby">Sport</a>
             </div>
 
             <div class="mega-dropdown" id="megaDropdown">

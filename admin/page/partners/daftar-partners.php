@@ -63,8 +63,7 @@
         $id = $_GET['id_partner'];
 
         // Ambil data artikel berdasarkan ID
-        $result = $partner->get_by_id($id);
-        $data = $result->fetch_assoc();
+        $data = $partner->get_by_id($id);
 
         if ($data && !empty($data['cover'])) {
             $filePath = '../img/' . $data['cover'];

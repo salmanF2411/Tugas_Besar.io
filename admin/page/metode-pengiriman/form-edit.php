@@ -2,9 +2,8 @@
 require_once('../model/Mpengiriman.php');
 $pengiriman = new Mpengiriman();
 $id = $_GET['id_pengiriman'];
-$query = $pengiriman->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $pengiriman->get_by_id($id);
+if ($data) {
 ?>
 <!DOCTYPE html>
 <html lang="id">

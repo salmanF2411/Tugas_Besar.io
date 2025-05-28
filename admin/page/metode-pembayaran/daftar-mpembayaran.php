@@ -70,8 +70,7 @@ if (isset($_GET['id_pembayaran'])) {
     $id = $_GET['id_pembayaran'];
 
     // Ambil data artikel berdasarkan ID
-    $result = $pembayaran->get_by_id($id);
-    $data = $result->fetch_assoc();
+    $data = $pembayaran->get_by_id($id);
 
     if ($data && !empty($data['cover'])) {
         $filePath = '../img/' . $data['cover'];

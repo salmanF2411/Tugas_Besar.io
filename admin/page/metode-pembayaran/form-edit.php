@@ -2,9 +2,8 @@
 require_once('../model/Mpembayaran.php');
 $pembayaran = new Mpembayaran();
 $id = $_GET['id_pembayaran'];
-$query = $pembayaran->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $pembayaran->get_by_id($id);
+if ($data) {
 ?>
 <!DOCTYPE html>
 <html lang="id">

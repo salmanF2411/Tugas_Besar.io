@@ -45,5 +45,11 @@
                     <span>Kendaraan</span>
                 </a>
             </div>
+            <div class="quick-action">
+                <a href="<?='dashboard.php?module=produk-sport&page=sport'?>">
+                    <i  class="ri-football-fill"></i>
+                    <span>Sport</span>
+                </a>
+            </div>
         </div>
     </div>

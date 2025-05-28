@@ -1,8 +1,8 @@
 <?php
-require_once('../model/Pelanggan.php');
-$pelanggan = new Pelanggan();
-$id = $_GET['id_pelanggan'];
-$data = $pelanggan->get_by_id($id);
+require_once('../model/Sport.php');
+$sport = new Sport();
+$id = $_GET['id_sport'];
+$data = $sport->get_by_id($id);
 if ($data) {
 ?>
 <!DOCTYPE html>
@@ -144,15 +144,15 @@ if ($data) {
 <body>
   <div class="container">
     <div class="card">
-      <form action="page/pelanggan/edit.php" method="post" enctype="multipart/form-data" id="furnitureForm">
-        <h2 class="form-title">Edit Produk Furniture</h2>
+      <form action="page/produk-sport/edit.php" method="post" enctype="multipart/form-data" id="furnitureForm">
+        <h2 class="form-title">Edit Produk Sport</h2>
 
-        <input type="hidden" name="id_pelanggan" value="<?= $id; ?>">
+        <input type="hidden" name="id_sport" value="<?= $id; ?>">
         <input type="hidden" name="cover_lama" value="<?= $data['cover']; ?>">
 
         <div class="form-grid">
-          <label for="nama" class="form-label">Nama Furniture</label>
-          <input type="text" id="nama" name="nama_pelanggan" class="form-input" value="<?= $data['nama_pelanggan']; ?>" required />
+          <label for="nama" class="form-label">Nama Sport</label>
+          <input type="text" id="nama" name="nama_sport" class="form-input" value="<?= $data['nama_sport']; ?>" required />
         </div>
 
         <div class="form-grid">
@@ -214,7 +214,7 @@ if ($data) {
 
     document.getElementById('furnitureForm').addEventListener('submit', function() {
       setTimeout(function() {
-        window.location.href = '../../dashboard.php?module=pelanggan&page=daftar-pelanggan';
+        window.location.href = '../../dashboard.php?module=produk-sepatu&page=sepatu';
       }, 100);
     });
   </script>

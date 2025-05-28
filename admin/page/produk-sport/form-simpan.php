@@ -1,21 +1,13 @@
-<?php
-require_once('../model/Pelanggan.php');
-$pelanggan = new Pelanggan();
-$id = $_GET['id_pelanggan'];
-$data = $pelanggan->get_by_id($id);
-if ($data) {
-?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edit Produk Furniture</title>
+  <title>Form Tambah Produk Furniture</title>
   <style>
-    /* [CSS tetap seperti sebelumnya, tidak diubah] */
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color:rgb(131, 131, 131);
+      color: rgb(131, 131, 131);
       background-color: #111;
       margin: 0;
     }
@@ -78,7 +70,7 @@ if ($data) {
       resize: vertical;
     }
 
-    .form-input:focus, .form-textarea:focus { 
+    .form-input:focus, .form-textarea:focus {
       border-color: #3b82f6;
       outline: none;
       box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
@@ -118,23 +110,28 @@ if ($data) {
       gap: 15px;
       align-items: center;
     }
+
     .current-photo {
       max-width: 150px;
       max-height: 100px;
       border-radius: 4px;
       object-fit: cover;
+      display: none;
     }
+
     .photo-info {
       display: flex;
       flex-direction: column;
       gap: 5px;
     }
+
     .change-photo-btn {
       color: #3b82f6;
       cursor: pointer;
       font-size: 14px;
       text-decoration: underline;
     }
+
     .filename {
       font-size: 13px;
       color: #9ca3af;
@@ -144,55 +141,44 @@ if ($data) {
 <body>
   <div class="container">
     <div class="card">
-      <form action="page/pelanggan/edit.php" method="post" enctype="multipart/form-data" id="furnitureForm">
-        <h2 class="form-title">Edit Produk Furniture</h2>
-
-        <input type="hidden" name="id_pelanggan" value="<?= $id; ?>">
-        <input type="hidden" name="cover_lama" value="<?= $data['cover']; ?>">
+      <form action="page/produk-sport/simpan.php" method="post" enctype="multipart/form-data" id="formSimpan">
+        <h2 class="form-title">Tambah Produk sport</h2>
 
         <div class="form-grid">
-          <label for="nama" class="form-label">Nama Furniture</label>
-          <input type="text" id="nama" name="nama_pelanggan" class="form-input" value="<?= $data['nama_pelanggan']; ?>" required />
+          <label for="nama_sport" class="form-label">Nama sport</label>
+          <input type="text" id="nama_sport" name="nama_sport" class="form-input" required />
         </div>
 
         <div class="form-grid">
           <label for="harga" class="form-label">Harga</label>
-          <input type="text" id="harga" name="harga" class="form-input" value="<?= $data['harga']; ?>" required />
+          <input type="text" id="harga" name="harga" class="form-input" required />
         </div>
 
         <div class="form-grid">
           <label for="rating" class="form-label">Rating</label>
-          <input type="number" step="1" min="0" max="5" id="rating" name="rating" class="form-input" value="<?= $data['rating']; ?>" required />
+          <input type="number" step="1" min="0" max="5" id="rating" name="rating" class="form-input" required />
         </div>
 
         <div class="form-grid">
           <label for="deskripsi" class="form-label">Deskripsi</label>
-          <textarea id="deskripsi" name="deskripsi" class="form-textarea" required><?= $data['deskripsi']; ?></textarea>
+          <textarea id="deskripsi" name="deskripsi" class="form-textarea" required></textarea>
         </div>
 
         <div class="form-grid">
           <label class="form-label">Cover Produk</label>
           <div>
             <div class="photo-preview-container">
-              <?php if (!empty($data['cover'])): ?>
-                <img src="../img/<?= $data['cover']; ?>" alt="Current Cover" class="current-photo" id="photoPreview">
-              <?php else: ?>
-                <img src="" alt="Preview" class="current-photo" id="photoPreview" style="display: none;">
-              <?php endif; ?>
+              <img src="" alt="Preview" class="current-photo" id="photoPreview">
               <div class="photo-info">
-                <span class="change-photo-btn" onclick="document.getElementById('coverInput').click()">
-                  <?= empty($data['cover']) ? 'Pilih Foto' : 'Ganti Foto' ?>
-                </span>
-                <span class="filename" id="filename">
-                  <?= !empty($data['cover']) ? $data['cover'] : 'Belum ada foto dipilih' ?>
-                </span>
+                <span class="change-photo-btn" onclick="document.getElementById('coverInput').click()">Pilih Foto</span>
+                <span class="filename" id="filename">Belum ada foto dipilih</span>
               </div>
             </div>
-            <input type="file" id="coverInput" name="cover" accept="image/*" style="display: none;" onchange="previewPhoto(this)">
+            <input type="file" id="coverInput" name="cover" accept="image/*" style="display: none;" onchange="previewPhoto(this)" required>
           </div>
         </div>
 
-        <button type="submit" name="simpan" class="submit-btn">Simpan Perubahan</button>
+        <button type="submit" name="simpan" class="submit-btn">Simpan Produk</button>
       </form>
     </div>
   </div>
@@ -211,17 +197,6 @@ if ($data) {
         reader.readAsDataURL(input.files[0]);
       }
     }
-
-    document.getElementById('furnitureForm').addEventListener('submit', function() {
-      setTimeout(function() {
-        window.location.href = '../../dashboard.php?module=pelanggan&page=daftar-pelanggan';
-      }, 100);
-    });
   </script>
 </body>
 </html>
-<?php
-} else {
-  echo "<div style='color:red'>Data tidak ditemukan!</div>";
-}
-?>

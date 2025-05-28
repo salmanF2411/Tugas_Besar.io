@@ -2,9 +2,8 @@
 require_once('../model/Artikel.php');
 $artikel = new Artikel();
 $id = $_GET['id'];
-$query = $artikel->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $artikel->get_by_id($id);
+if ($data) {
     $ya = $data['posting'] == 'ya' ? 'checked' : '';
     $tidak = $data['posting'] == 'tidak' ? 'checked' : '';
 ?>
@@ -187,7 +186,7 @@ if ($query->num_rows > 0) {
           <div>
             <div class="photo-preview-container">
               <?php if (!empty($data['cover'])): ?>
-                <img src="../../../img/<?= $data['cover']; ?>" alt="Current Cover" class="current-photo" id="photoPreview">
+                <img src="../img/<?= $data['cover']; ?>" alt="Current Cover" class="current-photo" id="photoPreview">
               <?php else: ?>
                 <img src="" alt="Preview" class="current-photo" id="photoPreview" style="display: none;">
               <?php endif; ?>

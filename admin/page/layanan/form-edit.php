@@ -2,9 +2,8 @@
 require_once('../model/Layanan.php');
 $layanan = new Layanan();
 $id = $_GET['id_layanan'];
-$query = $layanan->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $layanan->get_by_id($id);
+if ($data) {
 ?>
 <!DOCTYPE html>
 <html lang="id">

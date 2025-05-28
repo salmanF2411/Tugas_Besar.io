@@ -2,9 +2,8 @@
 require_once('../model/Elektronik.php');
 $elektronik = new Elektronik();
 $id = $_GET['id_elektronik'];
-$query = $elektronik->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $elektronik->get_by_id($id);
+if ($data) {
 ?>
 <!DOCTYPE html>
 <html lang="id">

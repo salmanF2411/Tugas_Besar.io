@@ -2,9 +2,8 @@
 require_once('../model/Baju.php');
 $baju = new Baju();
 $id = $_GET['id_baju'];
-$query = $baju->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $baju->get_by_id($id);
+if ($data) {
 ?>
 <!DOCTYPE html>
 <html lang="id">

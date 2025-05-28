@@ -2,9 +2,8 @@
 require_once('../model/Sepatu.php');
 $sepatu = new Sepatu();
 $id = $_GET['id_sepatu'];
-$query = $sepatu->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $sepatu->get_by_id($id);
+if ($data) {
 ?>
 <!DOCTYPE html>
 <html lang="id">

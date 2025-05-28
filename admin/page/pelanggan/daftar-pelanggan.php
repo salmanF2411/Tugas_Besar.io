@@ -3,9 +3,9 @@
         <div>
             <h2 class="modern-title"><i class="ri-team-line"></i> Pelanggan</h2>
         </div>
-        <div class="mb-2">
+        <!-- <div class="mb-2">
             <a href="#" class="modern-btn"><i class="fa fa-plus"></i>Tambah Pelanggan</a>
-        </div>
+        </div> -->
     </div>
 
     <div class="row">

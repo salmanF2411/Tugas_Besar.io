@@ -61,8 +61,8 @@
         $query->bind_param("i", $id);
         $query->execute();
         $result =  $query->get_result();
+        return $result->fetch_assoc(); 
 
-        return $result;
     }
     }
 

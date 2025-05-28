@@ -2,9 +2,8 @@
 require_once('../model/Buku.php');
 $buku = new Buku();
 $id = $_GET['id_buku'];
-$query = $buku->get_by_id($id);
-if ($query->num_rows > 0) {
-    $data = $query->fetch_assoc();
+$data = $buku->get_by_id($id);
+if ($data) {
 ?>
 <!DOCTYPE html>
 <html lang="id">
