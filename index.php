@@ -46,7 +46,7 @@ $session = new Session();
                     </button>
                 </div> -->
 
-                <a href="#" class="kategori-link">Kategori</a>
+                <a href="<?= 'index.php?module=About-us&page=About-us' ?>" class="kategori-link">About Us</a>
                 <a href="<?= 'index.php?module=layanan&page=layanan' ?>" class="inspirasi-link">Layanan</a>
 
                 <div class="search-container">
@@ -59,7 +59,7 @@ $session = new Session();
                 <div class="nav-right">
                     <div class="rewards">
                         <i class="ri-vip-crown-line rewards-crown"></i>
-                        <span>rewards</span>
+                        <a style="text-decoration: none;color:black;" href="<?= 'index.php?module=reward&page=reward' ?>" alt="keranjang"><span>rewards</span></a>
                     </div>
 
                     <i class="ri-notification-3-line nav-icon">
@@ -224,8 +224,19 @@ $session = new Session();
                 <h3>BERGABUNG SEBAGAI TENANT</h3>
                 <button class="join-btn">Join Now!</button>
                 <h3>AKUN</h3>
-                <p>Masuk Akun</p>
-                <p>Register</p>
+                <?php if (!isset($_SESSION['email'])): ?>
+                    <a style="text-decoration: none; color:black;" href="auth/loginForm.php">
+                        <p>Masuk Akun</p>
+                    </a>
+                    <a style="text-decoration: none; color:black;" href="auth/registerForm.php">
+                        <p>Register</p>
+                    </a>
+                <?php else: ?>
+                    <p>Halo, <?= htmlspecialchars($_SESSION['email']) ?></p>
+                    <form action="auth/logout.php" method="post">
+                        <input type="submit" value="Logout" class="keluar-btn" />
+                    </form>
+                <?php endif; ?>
             </div>
             <div class="footer-section">
                 <h3>BUTUH BANTUAN?</h3>
@@ -233,8 +244,8 @@ $session = new Session();
                 <p>Sabtu - Minggu / Libur Nasional: 11:00 - 20:00 WIB</p>
                 <p>✉ customer@hijup.com</p>
                 <p>📍 Pejaten Barat Raya No. 2B Pasar Minggu, Jakarta Selatan, 12510</p>
-                <button>HUBUNGI KAMI</button>
-                <button class="wa">WHATSAPP</button>
+                <a href=""><button style="cursor: pointer;">HUBUNGI KAMI</button></a>
+                <a style="text-decoration: none;" href="https://wa.me/085864494589" target="_blank"><button style="cursor: pointer;" class="wa">WHATSAPP</button></a>
             </div>
             <div class="footer-section">
                 <h3>TELUSURI KAMI</h3>

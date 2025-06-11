@@ -78,12 +78,12 @@
                     <span>Lihat Laporan</span></a>
                 </div>
                 <div class="quick-action">
-                    <a href="<?='dashboard.php?module=artikel&page=daftar-artikel'?>"><i class="ri-mail-line"></i>
-                    <span>Pesan Baru</span></a>
+                    <a href="<?='dashboard.php?module=banner&page=daftar-banner'?>"><i class="ri-flag-line"></i>
+                    <span>Banner</span></a>
                 </div>
                 <div class="quick-action">
-                    <a href="<?='dashboard.php?module=artikel&page=daftar-artikel'?>"><i class="ri-team-line"></i>
-                    <span>Lihat Pelanggan</span></a>
+                    <a href="<?='dashboard.php?module=reward&page=daftar-reward'?>"><i class="ri-vip-crown-line"></i>
+                    <span>Reward</span></a>
                 </div>
             </div>
 
